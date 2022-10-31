@@ -29,6 +29,7 @@ if capturingData == secretWork:
             contents_decrypted = Fernet(secretKey).decrypt(contents)
         with open(file, "wb") as writeFile: 
             writeFile.write(contents_decrypted)
+    os.remove("key.txt")
 else: 
     print("Wrong secret word...")
 
